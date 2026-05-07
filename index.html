@@ -3,45 +3,41 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DermFolio — Private Skin Photo Tracking</title>
+  <title>DermFolio — Private Skin Photo Tracking for iPhone</title>
   <meta name="description" content="DermFolio is a private iPhone app for organizing and comparing skin photos over time.">
+  <meta name="theme-color" content="#F6FBFC">
 
   <style>
     :root {
-      --bg: #071421;
-      --bg-soft: #0b1f31;
-      --card: rgba(255, 255, 255, 0.07);
-      --card-border: rgba(255, 255, 255, 0.12);
-      --text: #f4f8fb;
-      --muted: rgba(244, 248, 251, 0.72);
-      --muted-2: rgba(244, 248, 251, 0.54);
-      --accent: #6ee7df;
-      --accent-soft: rgba(110, 231, 223, 0.16);
-      --shadow: rgba(0, 0, 0, 0.35);
+      --bg: #F6FBFC;
+      --surface: #FFFFFF;
+      --surface-2: #EEF4F7;
+      --ink: #0F1E2E;
+      --ink-2: #4A5A6B;
+      --ink-3: #8A98A8;
+      --border: rgba(15, 30, 46, 0.08);
+      --border-strong: rgba(15, 30, 46, 0.14);
+      --accent: #2C7A8C;
+      --accent-2: #3F9AAE;
+      --accent-soft: rgba(44, 122, 140, 0.08);
+      --shadow-sm: 0 1px 2px rgba(15, 30, 46, 0.04);
+      --shadow-md: 0 8px 24px rgba(15, 30, 46, 0.06);
+      --shadow-lg: 0 28px 60px rgba(15, 30, 46, 0.10);
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 50% 12%, rgba(110, 231, 223, 0.22), transparent 32%),
-        radial-gradient(circle at 78% 8%, rgba(58, 125, 255, 0.14), transparent 26%),
-        linear-gradient(180deg, #071421 0%, #081827 48%, #06111d 100%);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
       min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
     }
 
-    a {
-      color: inherit;
-    }
+    a { color: inherit; }
 
     .page {
       width: min(1120px, calc(100% - 40px));
@@ -52,7 +48,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 28px 0;
+      padding: 26px 0;
     }
 
     .brand {
@@ -62,373 +58,436 @@
       text-decoration: none;
       font-weight: 700;
       letter-spacing: -0.02em;
+      font-size: 17px;
+      color: var(--ink);
     }
 
     .brand-mark {
-      width: 36px;
-      height: 36px;
+      position: relative;
+      width: 34px;
+      height: 34px;
       border-radius: 10px;
-      background:
-        radial-gradient(circle at 50% 45%, rgba(110, 231, 223, 0.45), transparent 44%),
-        linear-gradient(145deg, #102a42, #071421);
-      border: 1px solid rgba(255, 255, 255, 0.18);
-      display: grid;
-      place-items: center;
-      box-shadow: 0 14px 34px var(--shadow);
+      background: linear-gradient(140deg, var(--accent-2), var(--accent));
+      box-shadow: var(--shadow-md);
+      flex-shrink: 0;
     }
 
-    .brand-mark svg {
-      width: 22px;
-      height: 22px;
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      border-radius: 5px;
+      background: #FFFFFF;
+    }
+
+    .brand-mark::before {
+      top: 7px; right: 7px; bottom: 11px; left: 11px;
+      opacity: 0.55;
+    }
+
+    .brand-mark::after {
+      top: 11px; right: 11px; bottom: 7px; left: 7px;
+      box-shadow: 0 2px 6px rgba(15, 30, 46, 0.18);
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 26px;
       align-items: center;
-      color: var(--muted);
+      color: var(--ink-2);
       font-size: 14px;
+      font-weight: 500;
     }
 
     .nav-links a {
       text-decoration: none;
+      transition: color 0.15s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
+    .nav-links a:hover { color: var(--ink); }
 
     .hero {
       display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 56px;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 60px;
       align-items: center;
-      padding: 72px 0 92px;
+      padding: 64px 0 96px;
     }
 
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 12px;
+      padding: 6px 12px;
       border-radius: 999px;
       background: var(--accent-soft);
-      color: #bdfaf5;
-      border: 1px solid rgba(110, 231, 223, 0.24);
+      color: var(--accent);
+      border: 1px solid rgba(44, 122, 140, 0.18);
       font-size: 13px;
       font-weight: 600;
       margin-bottom: 22px;
     }
 
+    .eyebrow::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
     h1 {
       margin: 0;
-      font-size: clamp(46px, 7vw, 78px);
-      line-height: 0.96;
-      letter-spacing: -0.065em;
+      font-size: clamp(40px, 6.2vw, 64px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      font-weight: 800;
     }
 
     .hero p {
-      margin: 24px 0 0;
-      max-width: 640px;
-      color: var(--muted);
-      font-size: 20px;
+      margin: 22px 0 0;
+      max-width: 540px;
+      color: var(--ink-2);
+      font-size: 18px;
       line-height: 1.55;
     }
 
     .cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 34px;
+      gap: 12px;
+      margin-top: 32px;
     }
 
     .button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 48px;
-      padding: 0 20px;
-      border-radius: 14px;
+      min-height: 46px;
+      padding: 0 22px;
+      border-radius: 12px;
       text-decoration: none;
-      font-weight: 700;
+      font-weight: 600;
+      font-size: 15px;
       border: 1px solid transparent;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
     }
 
     .button-primary {
-      background: var(--text);
-      color: #071421;
-      box-shadow: 0 18px 36px rgba(0, 0, 0, 0.28);
+      background: var(--ink);
+      color: var(--surface);
+      box-shadow: var(--shadow-md);
+    }
+
+    .button-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-lg);
     }
 
     .button-secondary {
-      color: var(--text);
-      border-color: rgba(255, 255, 255, 0.18);
-      background: rgba(255, 255, 255, 0.06);
+      color: var(--ink);
+      border-color: var(--border-strong);
+      background: var(--surface);
+    }
+
+    .button-secondary:hover {
+      background: var(--surface-2);
     }
 
     .note {
       margin-top: 18px;
-      color: var(--muted-2);
+      color: var(--ink-3);
       font-size: 14px;
     }
+
+    /* ----- Phone mockup ----- */
 
     .phone-card {
       position: relative;
-      max-width: 390px;
+      max-width: 360px;
       margin: 0 auto;
-      padding: 14px;
-      border-radius: 42px;
-      background: linear-gradient(145deg, rgba(255,255,255,0.18), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255, 255, 255, 0.16);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.46);
+      padding: 10px;
+      border-radius: 46px;
+      background: linear-gradient(150deg, #1B2937, #0F1E2E);
+      box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0, 0, 0, 0.45);
     }
 
     .phone-screen {
-      min-height: 680px;
-      border-radius: 32px;
+      position: relative;
+      min-height: 660px;
+      border-radius: 38px;
       overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 20%, rgba(110,231,223,0.18), transparent 34%),
-        linear-gradient(180deg, #0a1c2d, #071421);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 24px;
+      background: var(--bg);
+      padding: 56px 22px 26px;
     }
 
-    .phone-top {
-      display: flex;
-      justify-content: space-between;
-      color: var(--muted-2);
-      font-size: 13px;
-      margin-bottom: 28px;
+    .phone-notch {
+      position: absolute;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 96px;
+      height: 24px;
+      border-radius: 14px;
+      background: #0F1E2E;
+      z-index: 2;
+    }
+
+    .app-eyebrow {
+      color: var(--ink-3);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 6px;
     }
 
     .app-title {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: 8px;
-    }
-
-    .app-subtitle {
-      color: var(--muted);
-      font-size: 15px;
-      line-height: 1.45;
-      margin-bottom: 22px;
-    }
-
-    .camera-preview {
-      height: 250px;
-      border-radius: 26px;
-      background:
-        radial-gradient(circle at 50% 43%, rgba(110,231,223,0.26), transparent 35%),
-        linear-gradient(145deg, #102b40, #071421);
-      border: 1px solid rgba(255, 255, 255, 0.14);
-      display: grid;
-      place-items: center;
+      letter-spacing: -0.035em;
+      color: var(--ink);
       margin-bottom: 18px;
-      position: relative;
-      overflow: hidden;
     }
 
-    .body-outline {
-      width: 116px;
-      height: 170px;
-      opacity: 0.94;
-    }
-
-    .context-card {
-      border-radius: 22px;
-      padding: 18px;
-      background: rgba(255, 255, 255, 0.075);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+    .areas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
       margin-bottom: 14px;
     }
 
-    .context-card .label {
-      color: var(--muted-2);
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      margin-bottom: 8px;
-    }
-
-    .context-card .value {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 10px;
-    }
-
-    .timeline-row {
-      display: grid;
-      grid-template-columns: 44px 1fr;
-      gap: 12px;
-      align-items: center;
-      padding: 10px;
+    .area-tile {
       border-radius: 18px;
-      background: rgba(255, 255, 255, 0.045);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 10px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .thumb {
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
-      background:
-        radial-gradient(circle at center, rgba(110,231,223,0.22), transparent 54%),
-        #102436;
+    .area-thumb {
+      aspect-ratio: 1.35 / 1;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #DCE7EC, #BBCED6);
     }
 
-    .row-title {
+    .area-tile-2 .area-thumb { background: linear-gradient(135deg, #E5DBD0, #CDB6A4); }
+    .area-tile-3 .area-thumb { background: linear-gradient(135deg, #D9DEE5, #B7C2D0); }
+    .area-tile-4 .area-thumb { background: linear-gradient(135deg, #DDE3D6, #BFC8B0); }
+
+    .area-name {
+      font-size: 13px;
       font-weight: 700;
-      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.2;
     }
 
-    .row-meta {
-      color: var(--muted-2);
-      font-size: 12px;
-      margin-top: 3px;
+    .area-meta {
+      font-size: 11px;
+      color: var(--ink-3);
+      margin-top: 2px;
     }
+
+    .timeline-card {
+      border-radius: 18px;
+      padding: 12px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .timeline-thumb {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #DCE7EC, #BBCED6);
+      flex-shrink: 0;
+    }
+
+    .timeline-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .timeline-sub {
+      font-size: 11px;
+      color: var(--ink-3);
+      margin-top: 2px;
+    }
+
+    /* ----- Sections ----- */
 
     .section {
       padding: 84px 0;
-      border-top: 1px solid rgba(255, 255, 255, 0.09);
+      border-top: 1px solid var(--border);
     }
 
     .section h2 {
       margin: 0 0 16px;
-      font-size: clamp(32px, 4vw, 48px);
-      line-height: 1.05;
-      letter-spacing: -0.045em;
+      font-size: clamp(28px, 3.6vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      font-weight: 800;
     }
 
     .section-intro {
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 18px;
+      max-width: 700px;
+      color: var(--ink-2);
+      font-size: 17px;
       line-height: 1.55;
-      margin: 0 0 34px;
+      margin: 0 0 36px;
     }
 
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
+      gap: 16px;
     }
 
     .feature-card {
-      min-height: 210px;
-      border-radius: 26px;
-      padding: 24px;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      box-shadow: 0 18px 48px rgba(0, 0, 0, 0.16);
+      min-height: 200px;
+      border-radius: 22px;
+      padding: 26px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
     }
 
-    .feature-icon {
-      width: 42px;
-      height: 42px;
-      border-radius: 14px;
+    .feature-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
       display: grid;
       place-items: center;
       background: var(--accent-soft);
       color: var(--accent);
+      font-weight: 700;
+      font-size: 13px;
       margin-bottom: 18px;
+      letter-spacing: 0.04em;
     }
 
     .feature-card h3 {
-      margin: 0 0 10px;
-      font-size: 20px;
+      margin: 0 0 8px;
+      font-size: 18px;
       letter-spacing: -0.02em;
+      color: var(--ink);
+      font-weight: 700;
     }
 
     .feature-card p {
       margin: 0;
-      color: var(--muted);
+      color: var(--ink-2);
       line-height: 1.55;
-      font-size: 15px;
+      font-size: 14.5px;
     }
 
     .privacy-panel {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 14px;
       margin-top: 28px;
     }
 
     .privacy-item {
       padding: 22px;
-      border-radius: 22px;
-      background: rgba(110, 231, 223, 0.08);
-      border: 1px solid rgba(110, 231, 223, 0.18);
+      border-radius: 18px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
     }
 
     .privacy-item strong {
-      display: block;
-      margin-bottom: 8px;
-      font-size: 17px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    .privacy-check {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+    }
+
+    .privacy-check svg {
+      width: 12px;
+      height: 12px;
     }
 
     .privacy-item span {
-      color: var(--muted);
+      color: var(--ink-2);
       line-height: 1.5;
-      font-size: 15px;
+      font-size: 14.5px;
     }
 
     .disclaimer-box {
-      border-radius: 28px;
+      border-radius: 22px;
       padding: 28px;
-      background: rgba(255, 255, 255, 0.065);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      color: var(--muted);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--ink-2);
+      line-height: 1.65;
+      font-size: 15px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .disclaimer-box strong { color: var(--ink); }
+    .disclaimer-box p:first-child { margin-top: 0; }
+    .disclaimer-box p:last-child  { margin-bottom: 0; }
+
+    .site-footer {
+      padding: 36px 0 48px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--ink-3);
+      font-size: 13.5px;
       line-height: 1.65;
     }
 
-    .disclaimer-box strong {
-      color: var(--text);
-    }
-
-    .site-footer {
-      margin-top: 24px;
-      padding: 36px 0 48px;
-      border-top: 1px solid rgba(255, 255, 255, 0.12);
-      text-align: center;
-      color: rgba(255, 255, 255, 0.68);
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
     .site-footer a {
-      color: rgba(255, 255, 255, 0.88);
+      color: var(--ink-2);
       text-decoration: none;
     }
 
     .site-footer a:hover {
+      color: var(--ink);
       text-decoration: underline;
     }
 
     .site-footer span {
       margin: 0 8px;
-      color: rgba(255, 255, 255, 0.4);
+      color: var(--ink-3);
     }
 
     .medical-disclaimer {
       max-width: 680px;
       margin: 12px auto 0;
-      color: rgba(255, 255, 255, 0.56);
+      color: var(--ink-3);
     }
 
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: 1fr;
-        padding-top: 46px;
-      }
-
-      .phone-card {
-        max-width: 360px;
+        padding: 40px 0 72px;
+        gap: 48px;
       }
 
       .feature-grid,
@@ -436,31 +495,14 @@
         grid-template-columns: 1fr;
       }
 
-      .nav-links {
-        display: none;
-      }
+      .nav-links { display: none; }
     }
 
     @media (max-width: 520px) {
-      .page {
-        width: min(100% - 28px, 1120px);
-      }
-
-      .hero {
-        padding-bottom: 66px;
-      }
-
-      .button {
-        width: 100%;
-      }
-
-      .phone-screen {
-        min-height: 620px;
-      }
-
-      .section {
-        padding: 62px 0;
-      }
+      .page { width: min(100% - 28px, 1120px); }
+      .button { width: 100%; }
+      .phone-screen { min-height: 600px; }
+      .section { padding: 60px 0; }
     }
   </style>
 </head>
@@ -469,20 +511,15 @@
   <div class="page">
     <nav class="nav" aria-label="Primary navigation">
       <a class="brand" href="/">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 64 64" fill="none">
-            <path d="M32 9c5.1 0 9.2 4.1 9.2 9.2S37.1 27.4 32 27.4s-9.2-4.1-9.2-9.2S26.9 9 32 9Z" stroke="white" stroke-width="3" />
-            <path d="M21 57c1.4-9.4 2.5-17.6 2.7-24.3.1-3.2 2.8-5.7 6-5.7h4.6c3.2 0 5.9 2.5 6 5.7.2 6.7 1.3 14.9 2.7 24.3" stroke="white" stroke-width="3" stroke-linecap="round" />
-            <path d="M24 34l-8 10M40 34l8 10" stroke="white" stroke-width="3" stroke-linecap="round" />
-          </svg>
-        </span>
+        <span class="brand-mark" aria-hidden="true"></span>
         <span>DermFolio</span>
       </a>
 
       <div class="nav-links">
         <a href="#features">Features</a>
         <a href="#privacy">Privacy</a>
-        <a href="#medical-disclaimer">Medical Disclaimer</a>
+        <a href="#medical-disclaimer">Medical disclaimer</a>
+        <a href="/terms.html">Terms</a>
         <a href="/support.html">Support</a>
       </div>
     </nav>
@@ -491,13 +528,13 @@
       <section class="hero">
         <div>
           <div class="eyebrow">Private iPhone skin photo tracking</div>
-          <h1>Track skin photos over time. Privately.</h1>
+          <h1>A quieter way to keep skin photos.</h1>
           <p>
-            DermFolio helps you capture, organize, and compare skin photos by body area, so you can maintain a clearer personal record over time.
+            DermFolio helps you capture, organize, and compare skin photos by body area &mdash; kept on your device, never analyzed, never sold.
           </p>
 
           <div class="cta-row">
-            <a class="button button-primary" href="#privacy">Privacy-first by design</a>
+            <a class="button button-primary" href="#privacy">Privacy by design</a>
             <a class="button button-secondary" href="/support.html">Contact support</a>
           </div>
 
@@ -505,53 +542,47 @@
         </div>
 
         <div class="phone-card" aria-label="DermFolio app preview">
+          <div class="phone-notch" aria-hidden="true"></div>
           <div class="phone-screen">
-            <div class="phone-top">
-              <span>9:41</span>
-              <span>Private</span>
-            </div>
+            <div class="app-eyebrow">Areas</div>
+            <div class="app-title">Your areas</div>
 
-            <div class="app-title">Continue tracking</div>
-            <div class="app-subtitle">Organize photos by body area and compare changes over time.</div>
-
-            <div class="camera-preview">
-              <svg class="body-outline" viewBox="0 0 120 180" fill="none" aria-hidden="true">
-                <circle cx="60" cy="24" r="18" stroke="white" stroke-width="5"/>
-                <path d="M42 55c0-7 5-12 12-12h12c7 0 12 5 12 12v43c0 8 3 21 7 50" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M42 55v43c0 8-3 21-7 50" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M43 64 22 94" stroke="white" stroke-width="5" stroke-linecap="round"/>
-                <path d="M77 64 98 94" stroke="white" stroke-width="5" stroke-linecap="round"/>
-              </svg>
-            </div>
-
-            <div class="context-card">
-              <div class="label">Area of interest</div>
-              <div class="value">Left forearm</div>
-            </div>
-
-            <div class="timeline">
-              <div class="timeline-row">
-                <div class="thumb"></div>
+            <div class="areas-grid">
+              <div class="area-tile">
+                <div class="area-thumb"></div>
                 <div>
-                  <div class="row-title">Photo saved</div>
-                  <div class="row-meta">Today · Assigned to Left forearm</div>
+                  <div class="area-name">Left forearm</div>
+                  <div class="area-meta">8 photos</div>
                 </div>
               </div>
-
-              <div class="timeline-row">
-                <div class="thumb"></div>
+              <div class="area-tile area-tile-2">
+                <div class="area-thumb"></div>
                 <div>
-                  <div class="row-title">Earlier baseline</div>
-                  <div class="row-meta">Compared with prior photo</div>
+                  <div class="area-name">Right shoulder</div>
+                  <div class="area-meta">5 photos</div>
                 </div>
               </div>
-
-              <div class="timeline-row">
-                <div class="thumb"></div>
+              <div class="area-tile area-tile-3">
+                <div class="area-thumb"></div>
                 <div>
-                  <div class="row-title">Private record</div>
-                  <div class="row-meta">Stored on your device</div>
+                  <div class="area-name">Upper back</div>
+                  <div class="area-meta">3 photos</div>
                 </div>
+              </div>
+              <div class="area-tile area-tile-4">
+                <div class="area-thumb"></div>
+                <div>
+                  <div class="area-name">Right calf</div>
+                  <div class="area-meta">2 photos</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="timeline-card">
+              <div class="timeline-thumb"></div>
+              <div>
+                <div class="timeline-title">Latest baseline saved</div>
+                <div class="timeline-sub">Today &middot; Left forearm</div>
               </div>
             </div>
           </div>
@@ -561,24 +592,24 @@
       <section id="features" class="section">
         <h2>Built for personal tracking, not diagnosis.</h2>
         <p class="section-intro">
-          DermFolio is designed to make private skin-photo organization more consistent: capture photos, add context, and compare records by body area over time.
+          DermFolio is designed for consistent, private skin-photo organization. Capture photos, add context, and compare records by body area over time.
         </p>
 
         <div class="feature-grid">
           <div class="feature-card">
-            <div class="feature-icon">01</div>
+            <div class="feature-num">01</div>
             <h3>Capture with context</h3>
             <p>Take or import photos and assign them to a body area or area of interest so your record stays organized.</p>
           </div>
 
           <div class="feature-card">
-            <div class="feature-icon">02</div>
+            <div class="feature-num">02</div>
             <h3>Compare over time</h3>
             <p>Review earlier and later photos for the same area without digging through your general camera roll.</p>
           </div>
 
           <div class="feature-card">
-            <div class="feature-icon">03</div>
+            <div class="feature-num">03</div>
             <h3>Add private notes</h3>
             <p>Keep notes, dates, and tags alongside photos for your own reference or for discussion with a healthcare professional.</p>
           </div>
@@ -593,22 +624,34 @@
 
         <div class="privacy-panel">
           <div class="privacy-item">
-            <strong>No account required</strong>
-            <span>DermFolio is designed to work without requiring you to create an account.</span>
+            <strong>
+              <span class="privacy-check"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6 5 8.5 9.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              No account required
+            </strong>
+            <span>DermFolio does not require you to create an account or sign in.</span>
           </div>
 
           <div class="privacy-item">
-            <strong>Local storage</strong>
+            <strong>
+              <span class="privacy-check"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6 5 8.5 9.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              Local storage
+            </strong>
             <span>Your app records are designed to stay on your device unless you choose to export or share them.</span>
           </div>
 
           <div class="privacy-item">
-            <strong>No ads or tracking</strong>
+            <strong>
+              <span class="privacy-check"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6 5 8.5 9.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              No ads or tracking
+            </strong>
             <span>DermFolio is not designed around behavioral advertising, data brokers, or targeted marketing.</span>
           </div>
 
           <div class="privacy-item">
-            <strong>No medical analysis</strong>
+            <strong>
+              <span class="privacy-check"><svg viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2.5 6 5 8.5 9.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              No medical analysis
+            </strong>
             <span>The app does not diagnose, score, triage, or analyze your skin photos.</span>
           </div>
         </div>
@@ -631,12 +674,12 @@
     </main>
 
     <footer class="site-footer">
-      <p>© 2026 DermFolio. All rights reserved.</p>
+      <p>&copy; 2026 DermFolio. All rights reserved.</p>
       <p>
         <a href="/privacy.html">Privacy Policy</a>
-        <span>·</span>
+        <span>&middot;</span>
         <a href="/terms.html">Terms of Use</a>
-        <span>·</span>
+        <span>&middot;</span>
         <a href="/support.html">Support</a>
       </p>
       <p class="medical-disclaimer">
