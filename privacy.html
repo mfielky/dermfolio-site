@@ -1,119 +1,314 @@
-<h1>DermFolio Privacy Policy</h1>
-<p><strong>Effective Date:</strong> [Month Day, 2026]</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy &middot; DermFolio</title>
+  <meta name="description" content="DermFolio Privacy Policy.">
+  <meta name="theme-color" content="#F6FBFC">
 
-<p>DermFolio (“DermFolio,” “we,” “us,” or “our”) respects your privacy. This Privacy Policy explains how information is handled when you use the DermFolio mobile application and website.</p>
+  <style>
+    :root {
+      --bg: #F6FBFC;
+      --surface: #FFFFFF;
+      --surface-2: #EEF4F7;
+      --ink: #0F1E2E;
+      --ink-2: #4A5A6B;
+      --ink-3: #8A98A8;
+      --border: rgba(15, 30, 46, 0.08);
+      --accent: #2C7A8C;
+      --accent-2: #3F9AAE;
+      --accent-soft: rgba(44, 122, 140, 0.08);
+      --shadow-sm: 0 1px 2px rgba(15, 30, 46, 0.04);
+      --shadow-md: 0 8px 24px rgba(15, 30, 46, 0.06);
+    }
 
-<p>DermFolio is designed as a private, personal photo-tracking tool. It is not a medical device, does not provide medical advice, does not diagnose or treat any condition, and does not replace consultation with a licensed healthcare professional.</p>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-<h2>1. Information You Store in the App</h2>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
 
-<p>DermFolio allows you to create and store information on your device, which may include:</p>
+    a { color: var(--accent); }
 
-<ul>
-  <li>photos you take or import;</li>
-  <li>body-area labels or areas of interest;</li>
-  <li>notes, tags, dates, and related context that you choose to add; and</li>
-  <li>app settings and preferences.</li>
-</ul>
+    .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
-<p>This information may include health-related information because it can relate to your skin or body. DermFolio is designed so that this information is stored locally on your device. We do not receive, view, collect, sell, or share the photos, notes, body-area labels, or other personal records you create in the app unless you separately and intentionally send information to us, such as by emailing support.</p>
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 0;
+    }
 
-<h2>2. Information We Collect</h2>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: 17px;
+      color: var(--ink);
+    }
 
-<p>As currently designed, DermFolio does not require an account and does not collect your photos, notes, body-area labels, or other in-app records.</p>
+    .brand-mark {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(140deg, var(--accent-2), var(--accent));
+      box-shadow: var(--shadow-md);
+      flex-shrink: 0;
+    }
 
-<p>If you contact us for support, we may collect the information you choose to provide, such as your email address, your message, screenshots you send, and technical information you include in the request.</p>
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      border-radius: 5px;
+      background: #FFFFFF;
+    }
 
-<p>Our website may receive ordinary technical information that web servers typically process, such as IP address, browser type, device type, pages visited, referring URL, and time of access. This information is used to operate, secure, and maintain the website.</p>
+    .brand-mark::before { top: 7px; right: 7px; bottom: 11px; left: 11px; opacity: 0.55; }
+    .brand-mark::after  { top: 11px; right: 11px; bottom: 7px; left: 7px; box-shadow: 0 2px 6px rgba(15, 30, 46, 0.18); }
 
-<h2>3. Photos and Camera Access</h2>
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      color: var(--ink-2);
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-<p>DermFolio may request access to your camera or photo library so you can take or import photos. Photos you capture or import into DermFolio are stored on your device unless you choose to export or share them using device-level sharing features.</p>
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink-2);
+    }
 
-<p>You can manage camera and photo permissions through your device settings.</p>
+    .nav-links a:hover { color: var(--ink); }
 
-<h2>4. How We Use Information</h2>
+    .doc {
+      max-width: 760px;
+      margin: 28px auto 64px;
+      padding: 44px clamp(20px, 5vw, 56px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow-sm);
+      line-height: 1.62;
+      color: var(--ink-2);
+      font-size: 16px;
+    }
 
-<p>We use information only as necessary to:</p>
+    .doc h1 {
+      margin: 0 0 6px;
+      font-size: clamp(30px, 4.2vw, 40px);
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      font-weight: 800;
+      line-height: 1.1;
+    }
 
-<ul>
-  <li>provide and operate DermFolio;</li>
-  <li>respond to support requests;</li>
-  <li>maintain, secure, and troubleshoot the website or app;</li>
-  <li>comply with applicable legal obligations; and</li>
-  <li>protect our rights, users, and services.</li>
-</ul>
+    .doc h2 {
+      margin: 38px 0 12px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      font-weight: 700;
+    }
 
-<p>We do not use your in-app photos or notes for advertising, profiling, analytics, artificial intelligence training, or sale to third parties.</p>
+    .doc p { margin: 12px 0; }
+    .doc ul { margin: 12px 0; padding-left: 22px; }
+    .doc li { margin: 6px 0; }
+    .doc strong { color: var(--ink); font-weight: 600; }
+    .doc a { color: var(--accent); text-decoration: none; }
+    .doc a:hover { text-decoration: underline; }
 
-<h2>5. Sharing of Information</h2>
+    .doc .meta {
+      color: var(--ink-3);
+      font-size: 14px;
+      margin: 0 0 8px;
+    }
 
-<p>We do not sell your personal information. We do not share your in-app photos, notes, body-area labels, or personal records with advertisers, data brokers, analytics providers, or healthcare providers.</p>
+    .site-footer {
+      padding: 36px 0 48px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--ink-3);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
 
-<p>We may share limited information only in the following circumstances:</p>
+    .site-footer a { color: var(--ink-2); text-decoration: none; }
+    .site-footer a:hover { color: var(--ink); text-decoration: underline; }
+    .site-footer span { margin: 0 8px; color: var(--ink-3); }
 
-<ul>
-  <li>with service providers that help us operate the website, email, or support functions;</li>
-  <li>if required by law, subpoena, court order, or legal process;</li>
-  <li>to protect the rights, safety, and security of DermFolio, users, or others; or</li>
-  <li>in connection with a merger, acquisition, financing, reorganization, or sale of assets, subject to appropriate protections.</li>
-</ul>
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .doc { margin-top: 16px; padding: 32px 22px; font-size: 15.5px; }
+    }
+  </style>
+</head>
 
-<h2>6. Health Information and HIPAA</h2>
+<body>
+  <div class="page">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>DermFolio</span>
+      </a>
 
-<p>DermFolio is not a healthcare provider, health plan, healthcare clearinghouse, or business associate of those entities merely because you use the app. Accordingly, information you store in DermFolio is generally not protected health information under HIPAA unless a separate HIPAA-covered relationship applies outside of DermFolio.</p>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/terms.html">Terms</a>
+        <a href="/support.html">Support</a>
+      </div>
+    </nav>
 
-<p>You should not use DermFolio as a substitute for professional medical records, medical advice, diagnosis, or treatment.</p>
+    <article class="doc">
+      <h1>DermFolio Privacy Policy</h1>
+      <p class="meta"><strong>Effective Date:</strong> May 8, 2026</p>
 
-<h2>7. Consumer Health Data</h2>
+      <p>DermFolio (&ldquo;DermFolio,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) respects your privacy. This Privacy Policy explains how information is handled when you use the DermFolio mobile application and website.</p>
 
-<p>Some state privacy laws define “consumer health data” broadly. Information you choose to store in DermFolio may be considered consumer health data because it may relate to your body, skin, or health status.</p>
+      <p>DermFolio is designed as a private, personal photo-tracking tool. It is not a medical device, does not provide medical advice, does not diagnose or treat any condition, and does not replace consultation with a licensed healthcare professional.</p>
 
-<p>DermFolio does not sell consumer health data. DermFolio does not share consumer health data for targeted advertising. DermFolio does not use consumer health data for advertising, profiling, or artificial intelligence model training.</p>
+      <h2>1. Information You Store in the App</h2>
 
-<p>Because the app is designed for local device storage, we generally do not possess the consumer health data that you store in the app. If you contact us and provide health-related information in a support request, we will use it only to respond to your request, operate the service, comply with law, or protect our rights and users.</p>
+      <p>DermFolio allows you to create and store information on your device, which may include:</p>
 
-<p>Certain state laws, including Washington’s My Health My Data Act, regulate consumer health data that may fall outside HIPAA. Washington’s Attorney General describes that law as protecting sensitive health data collected and shared outside the HIPAA framework.  [oai_citation:1‡Washington Attorney General](https://www.atg.wa.gov/protecting-washingtonians-personal-health-data-and-privacy?utm_source=chatgpt.com)</p>
+      <ul>
+        <li>photos you take or import;</li>
+        <li>body-area labels or areas of interest;</li>
+        <li>notes, tags, dates, and related context that you choose to add; and</li>
+        <li>app settings and preferences.</li>
+      </ul>
 
-<h2>8. Data Stored on Your Device</h2>
+      <p>This information may include health-related information because it can relate to your skin or body. DermFolio is designed so that this information is stored locally on your device. We do not receive, view, collect, sell, or share the photos, notes, body-area labels, or other personal records you create in the app unless you separately and intentionally send information to us, such as by emailing support.</p>
 
-<p>You are responsible for maintaining access to your device and backups. If you delete the app, reset your device, lose access to your device, or disable backups, your DermFolio records may be lost.</p>
+      <h2>2. Information We Collect</h2>
 
-<p>If your device backup settings include app data, your device operating system or backup provider may back up DermFolio data according to your device and cloud settings. DermFolio does not control Apple iCloud, device backups, or other third-party backup services.</p>
+      <p>As currently designed, DermFolio does not require an account and does not collect your photos, notes, body-area labels, or other in-app records.</p>
 
-<h2>9. Security</h2>
+      <p>If you contact us for support, we may collect the information you choose to provide, such as your email address, your message, screenshots you send, and technical information you include in the request.</p>
 
-<p>We use reasonable administrative and technical measures designed to protect information we process. However, no method of storage or transmission is completely secure. You should use device-level protections, including a passcode, Face ID or Touch ID, and appropriate backup settings.</p>
+      <p>Our website may receive ordinary technical information that web servers typically process, such as IP address, browser type, device type, pages visited, referring URL, and time of access. This information is used to operate, secure, and maintain the website.</p>
 
-<h2>10. Children</h2>
+      <h2>3. Photos and Camera Access</h2>
 
-<p>DermFolio is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided information to us, contact us and we will take appropriate steps.</p>
+      <p>DermFolio may request access to your camera or photo library so you can take or import photos. Photos you capture or import into DermFolio are stored on your device unless you choose to export or share them using device-level sharing features.</p>
 
-<p>Users under 18 should use DermFolio only with the involvement and consent of a parent or guardian.</p>
+      <p>You can manage camera and photo permissions through your device settings.</p>
 
-<h2>11. Your Choices</h2>
+      <h2>4. How We Use Information</h2>
 
-<p>You can control all of your information directly on your device. You may delete photos, notes, labels, or other app content within the app, if supported, or delete the app from your device.</p>
+      <p>We use information only as necessary to:</p>
 
-<p>You may also contact us to request access, deletion, correction, or other action regarding personal information that we actually maintain, such as support emails. We may need to verify your identity before responding.</p>
+      <ul>
+        <li>provide and operate DermFolio;</li>
+        <li>respond to support requests;</li>
+        <li>maintain, secure, and troubleshoot the website or app;</li>
+        <li>comply with applicable legal obligations; and</li>
+        <li>protect our rights, users, and services.</li>
+      </ul>
 
-<h2>12. Third-Party Links</h2>
+      <p>We do not use your in-app photos or notes for advertising, profiling, analytics, artificial intelligence training, or sale to third parties.</p>
 
-<p>Our website or app may link to third-party websites or services. We are not responsible for the privacy practices of third parties. You should review their privacy policies before providing information to them.</p>
+      <h2>5. App Tracking and Advertising Identifiers</h2>
 
-<h2>13. International Users</h2>
+      <p>DermFolio does not use Apple&rsquo;s App Tracking Transparency framework, does not request permission to track you across other apps and websites, and does not access the device advertising identifier (IDFA). DermFolio contains no advertising and no third-party analytics or marketing software development kits.</p>
 
-<p>DermFolio is intended for use in the United States. If you access the app or website from outside the United States, you understand that information may be processed in the United States, where privacy laws may differ from those in your location.</p>
+      <h2>6. Sharing of Information</h2>
 
-<h2>14. Changes to This Policy</h2>
+      <p>We do not sell your personal information. We do not share your in-app photos, notes, body-area labels, or personal records with advertisers, data brokers, analytics providers, or healthcare providers.</p>
 
-<p>We may update this Privacy Policy from time to time. If we make material changes, we will update the effective date and may provide additional notice where appropriate.</p>
+      <p>We may share limited information only in the following circumstances:</p>
 
-<h2>15. Contact Us</h2>
+      <ul>
+        <li>with service providers that help us operate the website, email, or support functions;</li>
+        <li>if required by law, subpoena, court order, or legal process;</li>
+        <li>to protect the rights, safety, and security of DermFolio, users, or others; or</li>
+        <li>in connection with a merger, acquisition, financing, reorganization, or sale of assets, subject to appropriate protections.</li>
+      </ul>
 
-<p>If you have questions about this Privacy Policy or DermFolio’s privacy practices, contact us at:</p>
+      <h2>7. Health Information and HIPAA</h2>
 
-<p>
+      <p>DermFolio is not a healthcare provider, health plan, healthcare clearinghouse, or business associate of those entities merely because you use the app. Accordingly, information you store in DermFolio is generally not protected health information under HIPAA unless a separate HIPAA-covered relationship applies outside of DermFolio.</p>
 
-Email: <a href="mailto:support@dermfolio.app">support@dermfolio.app</a>
-</p>
+      <p>You should not use DermFolio as a substitute for professional medical records, medical advice, diagnosis, or treatment.</p>
+
+      <h2>8. Consumer Health Data</h2>
+
+      <p>Some state privacy laws define &ldquo;consumer health data&rdquo; broadly. Information you choose to store in DermFolio may be considered consumer health data because it may relate to your body, skin, or health status.</p>
+
+      <p>DermFolio does not sell consumer health data. DermFolio does not share consumer health data for targeted advertising. DermFolio does not use consumer health data for advertising, profiling, or artificial intelligence model training.</p>
+
+      <p>Because the app is designed for local device storage, we generally do not possess the consumer health data that you store in the app. If you contact us and provide health-related information in a support request, we will use it only to respond to your request, operate the service, comply with law, or protect our rights and users.</p>
+
+      <p>Certain state laws, including Washington&rsquo;s My Health My Data Act, regulate consumer health data that may fall outside HIPAA. Washington&rsquo;s Attorney General has described that law as protecting sensitive health data collected and shared outside the HIPAA framework. See <a href="https://www.atg.wa.gov/protecting-washingtonians-personal-health-data-and-privacy">Washington Attorney General &mdash; Protecting Washingtonians&rsquo; personal health data and privacy</a>.</p>
+
+      <h2>9. Data Stored on Your Device</h2>
+
+      <p>You are responsible for maintaining access to your device and backups. If you delete the app, reset your device, lose access to your device, or disable backups, your DermFolio records may be lost.</p>
+
+      <p>If your device backup settings include app data, your device operating system or backup provider may back up DermFolio data according to your device and cloud settings. DermFolio does not control Apple iCloud, device backups, or other third-party backup services.</p>
+
+      <h2>10. Security</h2>
+
+      <p>We use reasonable administrative and technical measures designed to protect information we process. However, no method of storage or transmission is completely secure. You should use device-level protections, including a passcode, Face ID or Touch ID, and appropriate backup settings.</p>
+
+      <h2>11. Children</h2>
+
+      <p>DermFolio is not intended for children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided information to us, contact us and we will take appropriate steps.</p>
+
+      <p>Users under 18 should use DermFolio only with the involvement and consent of a parent or guardian.</p>
+
+      <h2>12. Your Choices</h2>
+
+      <p>You can control all of your information directly on your device. You may delete photos, notes, labels, or other app content within the app, or delete the app from your device.</p>
+
+      <p>When you delete a photo inside DermFolio, it is moved to a local Trash on your device for thirty (30) days, where you can restore it or remove it permanently. Photos remaining in Trash for longer than thirty days are automatically removed from the device. Deleting the DermFolio app from your device removes all locally stored DermFolio data.</p>
+
+      <p>You may also contact us to request access, deletion, correction, or other action regarding personal information that we actually maintain, such as support emails. We may need to verify your identity before responding.</p>
+
+      <p><strong>California residents.</strong> If you are a California resident, the California Consumer Privacy Act (as amended by the California Privacy Rights Act) gives you rights to know, delete, correct, and limit the use of your personal information. Because DermFolio is designed for local device storage and does not collect, sell, or share personal information about you in the ordinary course (other than support emails you choose to send us), we generally do not maintain personal information that would be subject to access or deletion requests beyond those support communications. To exercise your rights, contact us at <a href="mailto:support@dermfolio.app">support@dermfolio.app</a> with &ldquo;California Privacy Request&rdquo; in the subject line.</p>
+
+      <h2>13. Third-Party Links</h2>
+
+      <p>Our website or app may link to third-party websites or services. We are not responsible for the privacy practices of third parties. You should review their privacy policies before providing information to them.</p>
+
+      <h2>14. International Users</h2>
+
+      <p>DermFolio is intended for use in the United States. If you access the app or website from outside the United States, you understand that information may be processed in the United States, where privacy laws may differ from those in your location.</p>
+
+      <h2>15. Changes to This Policy</h2>
+
+      <p>We may update this Privacy Policy from time to time. If we make material changes, we will update the effective date and may provide additional notice where appropriate.</p>
+
+      <h2>16. Contact Us</h2>
+
+      <p>If you have questions about this Privacy Policy or DermFolio&rsquo;s privacy practices, contact us at:</p>
+
+      <p>Email: <a href="mailto:support@dermfolio.app">support@dermfolio.app</a></p>
+    </article>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 DermFolio. All rights reserved.</p>
+      <p>
+        <a href="/privacy.html">Privacy Policy</a>
+        <span>&middot;</span>
+        <a href="/terms.html">Terms of Use</a>
+        <span>&middot;</span>
+        <a href="/support.html">Support</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

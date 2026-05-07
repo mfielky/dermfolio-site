@@ -1,132 +1,336 @@
-<h1>DermFolio Terms of Use</h1>
-<p><strong>Last Updated:</strong> [Month Day, 2026]</p>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Terms of Use &middot; DermFolio</title>
+  <meta name="description" content="DermFolio Terms of Use.">
+  <meta name="theme-color" content="#F6FBFC">
 
-<p>These Terms of Use (“Terms”) govern your access to and use of the DermFolio mobile application and website (collectively, “DermFolio,” the “App,” or the “Service”). DermFolio is operated by [Your legal name or entity] (“we,” “us,” or “our”).</p>
+  <style>
+    :root {
+      --bg: #F6FBFC;
+      --surface: #FFFFFF;
+      --surface-2: #EEF4F7;
+      --ink: #0F1E2E;
+      --ink-2: #4A5A6B;
+      --ink-3: #8A98A8;
+      --border: rgba(15, 30, 46, 0.08);
+      --accent: #2C7A8C;
+      --accent-2: #3F9AAE;
+      --accent-soft: rgba(44, 122, 140, 0.08);
+      --shadow-sm: 0 1px 2px rgba(15, 30, 46, 0.04);
+      --shadow-md: 0 8px 24px rgba(15, 30, 46, 0.06);
+    }
 
-<p>By accessing or using DermFolio, you agree to these Terms. If you do not agree, do not use DermFolio.</p>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
 
-<h2>1. Important Medical Disclaimer</h2>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
 
-<p>DermFolio is a personal recordkeeping tool. DermFolio is not a medical device and does not provide medical advice, diagnosis, triage, monitoring, treatment recommendations, or clinical decision support.</p>
+    a { color: var(--accent); }
 
-<p>DermFolio does not review your photos, identify medical conditions, detect changes, assess risk, or determine whether you should seek medical care. You are solely responsible for deciding whether to consult a physician or other licensed healthcare professional.</p>
+    .page { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
 
-<p>Always seek the advice of a licensed healthcare professional with any questions about your health, skin, moles, lesions, rashes, symptoms, or medical condition. Do not disregard professional medical advice or delay seeking it because of information stored in or displayed by DermFolio.</p>
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 26px 0;
+    }
 
-<p>If you believe you may have a medical emergency, call 911 or seek emergency medical care immediately.</p>
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: 17px;
+      color: var(--ink);
+    }
 
-<h2>2. No Doctor-Patient Relationship</h2>
+    .brand-mark {
+      position: relative;
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(140deg, var(--accent-2), var(--accent));
+      box-shadow: var(--shadow-md);
+      flex-shrink: 0;
+    }
 
-<p>Your use of DermFolio does not create a physician-patient, healthcare provider-patient, or other professional relationship between you and DermFolio, us, or any third party.</p>
+    .brand-mark::before,
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      border-radius: 5px;
+      background: #FFFFFF;
+    }
 
-<p>DermFolio does not connect you with clinicians, provide telehealth services, or enable diagnosis or treatment unless we expressly offer those services under separate terms in the future.</p>
+    .brand-mark::before { top: 7px; right: 7px; bottom: 11px; left: 11px; opacity: 0.55; }
+    .brand-mark::after  { top: 11px; right: 11px; bottom: 7px; left: 7px; box-shadow: 0 2px 6px rgba(15, 30, 46, 0.18); }
 
-<h2>3. Eligibility</h2>
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      color: var(--ink-2);
+      font-size: 14px;
+      font-weight: 500;
+    }
 
-<p>You may use DermFolio only if you can form a binding agreement with us and are not prohibited from using the Service under applicable law.</p>
+    .nav-links a {
+      text-decoration: none;
+      color: var(--ink-2);
+    }
 
-<p>DermFolio is not intended for children under 13. Users under 18 may use DermFolio only with the involvement and consent of a parent or guardian.</p>
+    .nav-links a:hover { color: var(--ink); }
 
-<h2>4. Your Responsibility for Your Information</h2>
+    .doc {
+      max-width: 760px;
+      margin: 28px auto 64px;
+      padding: 44px clamp(20px, 5vw, 56px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      box-shadow: var(--shadow-sm);
+      line-height: 1.62;
+      color: var(--ink-2);
+      font-size: 16px;
+    }
 
-<p>You are responsible for the photos, notes, labels, dates, and other information you add to DermFolio. You are responsible for ensuring that information you enter is accurate, lawful, and appropriate for your use.</p>
+    .doc h1 {
+      margin: 0 0 6px;
+      font-size: clamp(30px, 4.2vw, 40px);
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      font-weight: 800;
+      line-height: 1.1;
+    }
 
-<p>You should not rely on DermFolio as your sole copy of important records. You are responsible for maintaining your own backups and for protecting access to your device.</p>
+    .doc h2 {
+      margin: 38px 0 12px;
+      font-size: 20px;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      font-weight: 700;
+    }
 
-<h2>5. Local Storage and Device Settings</h2>
+    .doc p { margin: 12px 0; }
+    .doc ul { margin: 12px 0; padding-left: 22px; }
+    .doc li { margin: 6px 0; }
+    .doc strong { color: var(--ink); font-weight: 600; }
+    .doc a { color: var(--accent); text-decoration: none; }
+    .doc a:hover { text-decoration: underline; }
 
-<p>DermFolio is designed to store your records locally on your device. Device settings, operating system behavior, iCloud, backups, and sharing tools may affect how your data is stored, backed up, exported, or shared. We do not control Apple, iCloud, your device backup configuration, or third-party services you choose to use.</p>
+    .doc .meta {
+      color: var(--ink-3);
+      font-size: 14px;
+      margin: 0 0 8px;
+    }
 
-<h2>6. Permitted Use</h2>
+    .site-footer {
+      padding: 36px 0 48px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--ink-3);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
 
-<p>You may use DermFolio only for lawful, personal, non-commercial purposes and in accordance with these Terms.</p>
+    .site-footer a { color: var(--ink-2); text-decoration: none; }
+    .site-footer a:hover { color: var(--ink); text-decoration: underline; }
+    .site-footer span { margin: 0 8px; color: var(--ink-3); }
 
-<p>You agree not to:</p>
+    @media (max-width: 720px) {
+      .nav-links { display: none; }
+      .doc { margin-top: 16px; padding: 32px 22px; font-size: 15.5px; }
+    }
+  </style>
+</head>
 
-<ul>
-  <li>use DermFolio for any unlawful, harmful, fraudulent, or abusive purpose;</li>
-  <li>attempt to reverse engineer, decompile, or extract source code except to the extent permitted by law;</li>
-  <li>interfere with or disrupt the operation of DermFolio;</li>
-  <li>misrepresent your affiliation with us;</li>
-  <li>copy, modify, distribute, sell, lease, or sublicense DermFolio except as expressly permitted; or</li>
-  <li>use DermFolio in a way that infringes or violates the rights of others.</li>
-</ul>
+<body>
+  <div class="page">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="/">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>DermFolio</span>
+      </a>
 
-<h2>7. Intellectual Property</h2>
+      <div class="nav-links">
+        <a href="/">Home</a>
+        <a href="/privacy.html">Privacy</a>
+        <a href="/support.html">Support</a>
+      </div>
+    </nav>
 
-<p>DermFolio, including its name, design, software, text, graphics, icons, and other content, is owned by us or our licensors and is protected by intellectual property laws.</p>
+    <article class="doc">
+      <h1>DermFolio Terms of Use</h1>
+      <p class="meta"><strong>Last Updated:</strong> May 8, 2026</p>
 
-<p>Subject to these Terms, we grant you a limited, revocable, non-exclusive, non-transferable license to use DermFolio for your personal, non-commercial use.</p>
+      <p>These Terms of Use (&ldquo;Terms&rdquo;) govern your access to and use of the DermFolio mobile application and website (collectively, &ldquo;DermFolio,&rdquo; the &ldquo;App,&rdquo; or the &ldquo;Service&rdquo;). DermFolio is operated by Micah (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;).</p>
 
-<p>You retain ownership of the photos, notes, and other content you create or store using DermFolio.</p>
+      <p>By accessing or using DermFolio, you agree to these Terms. If you do not agree, do not use DermFolio.</p>
 
-<h2>8. User Content</h2>
+      <h2>1. Important Medical Disclaimer</h2>
 
-<p>You are responsible for any content you create, store, export, or share using DermFolio. You represent that you have the rights necessary to use that content and that your use will not violate law or third-party rights.</p>
+      <p>DermFolio is a personal recordkeeping tool. DermFolio is not a medical device and does not provide medical advice, diagnosis, triage, monitoring, treatment recommendations, or clinical decision support.</p>
 
-<p>DermFolio does not claim ownership of your photos, notes, or personal records.</p>
+      <p>DermFolio does not review your photos, identify medical conditions, detect changes, assess risk, or determine whether you should seek medical care. You are solely responsible for deciding whether to consult a physician or other licensed healthcare professional.</p>
 
-<h2>9. App Store Terms</h2>
+      <p>Always seek the advice of a licensed healthcare professional with any questions about your health, skin, moles, lesions, rashes, symptoms, or medical condition. Do not disregard professional medical advice or delay seeking it because of information stored in or displayed by DermFolio.</p>
 
-<p>If you download DermFolio from the Apple App Store, your use of the App is also subject to Apple’s applicable terms and conditions.</p>
+      <p>If you believe you may have a medical emergency, call 911 or seek emergency medical care immediately.</p>
 
-<p>Apple is not responsible for providing maintenance or support for DermFolio. To the maximum extent permitted by law, Apple has no warranty obligation with respect to DermFolio. Apple and its subsidiaries are third-party beneficiaries of these Terms and may enforce these Terms against you as a third-party beneficiary.</p>
+      <h2>2. No Doctor-Patient Relationship</h2>
 
-<h2>10. Updates and Changes</h2>
+      <p>Your use of DermFolio does not create a physician-patient, healthcare provider-patient, or other professional relationship between you and DermFolio, us, or any third party.</p>
 
-<p>We may update, modify, suspend, or discontinue DermFolio or any part of it at any time. We may also update these Terms from time to time. If we make material changes, we will update the “Last Updated” date and may provide additional notice where appropriate.</p>
+      <p>DermFolio does not connect you with clinicians, provide telehealth services, or enable diagnosis or treatment unless we expressly offer those services under separate terms in the future.</p>
 
-<p>Your continued use of DermFolio after changes become effective means you accept the updated Terms.</p>
+      <h2>3. Eligibility</h2>
 
-<h2>11. Third-Party Services</h2>
+      <p>You may use DermFolio only if you can form a binding agreement with us and are not prohibited from using the Service under applicable law.</p>
 
-<p>DermFolio may include links or integrations with third-party services, such as device-level sharing, backup, or app-store services. We are not responsible for third-party services, and your use of them is governed by their terms and privacy policies.</p>
+      <p>DermFolio is not intended for children under 13. Users under 18 may use DermFolio only with the involvement and consent of a parent or guardian.</p>
 
-<h2>12. Disclaimer of Warranties</h2>
+      <h2>4. Your Responsibility for Your Information</h2>
 
-<p>DermFolio is provided “as is” and “as available.” To the fullest extent permitted by law, we disclaim all warranties, express, implied, or statutory, including warranties of merchantability, fitness for a particular purpose, title, non-infringement, accuracy, availability, and reliability.</p>
+      <p>You are responsible for the photos, notes, labels, dates, and other information you add to DermFolio. You are responsible for ensuring that information you enter is accurate, lawful, and appropriate for your use.</p>
 
-<p>We do not warrant that DermFolio will be uninterrupted, error-free, secure, accurate, or that data will not be lost. You are responsible for maintaining backups and protecting your device.</p>
+      <p>You should not rely on DermFolio as your sole copy of important records. You are responsible for maintaining your own backups and for protecting access to your device.</p>
 
-<h2>13. Limitation of Liability</h2>
+      <h2>5. Local Storage and Device Settings</h2>
 
-<p>To the fullest extent permitted by law, we will not be liable for indirect, incidental, consequential, special, exemplary, or punitive damages, or for loss of data, loss of profits, personal injury, emotional distress, or other damages arising out of or related to your use of or inability to use DermFolio.</p>
+      <p>DermFolio is designed to store your records locally on your device. Device settings, operating system behavior, iCloud, backups, and sharing tools may affect how your data is stored, backed up, exported, or shared. We do not control Apple, iCloud, your device backup configuration, or third-party services you choose to use.</p>
 
-<p>To the fullest extent permitted by law, our total liability for any claim arising out of or relating to DermFolio or these Terms will not exceed the greater of: (a) the amount you paid to use DermFolio in the twelve months before the claim arose; or (b) fifty dollars ($50).</p>
+      <h2>6. Permitted Use</h2>
 
-<h2>14. Indemnification</h2>
+      <p>You may use DermFolio only for lawful, personal, non-commercial purposes and in accordance with these Terms.</p>
 
-<p>You agree to defend, indemnify, and hold harmless us and our officers, directors, employees, contractors, agents, licensors, and service providers from and against claims, liabilities, damages, judgments, losses, costs, and expenses, including reasonable attorneys’ fees, arising out of or relating to your misuse of DermFolio, your violation of these Terms, your violation of law, or your violation of any third-party rights.</p>
+      <p>You agree not to:</p>
 
-<h2>15. Termination</h2>
+      <ul>
+        <li>use DermFolio for any unlawful, harmful, fraudulent, or abusive purpose;</li>
+        <li>attempt to reverse engineer, decompile, or extract source code except to the extent permitted by law;</li>
+        <li>interfere with or disrupt the operation of DermFolio;</li>
+        <li>misrepresent your affiliation with us;</li>
+        <li>copy, modify, distribute, sell, lease, or sublicense DermFolio except as expressly permitted; or</li>
+        <li>use DermFolio in a way that infringes or violates the rights of others.</li>
+      </ul>
 
-<p>You may stop using DermFolio at any time. We may suspend or terminate access to DermFolio if we believe you have violated these Terms or if continued access may create risk for us, other users, or third parties.</p>
+      <h2>7. Intellectual Property</h2>
 
-<h2>16. Governing Law</h2>
+      <p>DermFolio, including its name, design, software, text, graphics, icons, and other content, is owned by us or our licensors and is protected by intellectual property laws.</p>
 
-<p>These Terms are governed by the laws of the State of [New York or your preferred state], without regard to conflict-of-law rules, except to the extent preempted by federal law.</p>
+      <p>Subject to these Terms, we grant you a limited, revocable, non-exclusive, non-transferable license to use DermFolio for your personal, non-commercial use.</p>
 
-<h2>17. Dispute Resolution</h2>
+      <p>You retain ownership of the photos, notes, and other content you create or store using DermFolio.</p>
 
-<p>Before filing a claim, you agree to contact us at <a href="mailto:support@dermfolio.app">support@dermfolio.app</a> so we can try to resolve the issue informally.</p>
+      <h2>8. User Content</h2>
 
-<p>Any dispute arising out of or relating to these Terms or DermFolio will be resolved in the state or federal courts located in [County, State], unless applicable law requires otherwise. You and we consent to personal jurisdiction and venue in those courts.</p>
+      <p>You are responsible for any content you create, store, export, or share using DermFolio. You represent that you have the rights necessary to use that content and that your use will not violate law or third-party rights.</p>
 
-<p>Each party waives the right to a jury trial to the fullest extent permitted by law.</p>
+      <p>DermFolio does not claim ownership of your photos, notes, or personal records.</p>
 
-<h2>18. Severability</h2>
+      <h2>9. App Store Terms (Apple)</h2>
 
-<p>If any provision of these Terms is found unenforceable, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in effect.</p>
+      <p>If you download DermFolio from the Apple App Store, your use of the App is also subject to Apple&rsquo;s applicable terms and conditions.</p>
 
-<h2>19. Entire Agreement</h2>
+      <p>You acknowledge that these Terms are between you and us only, and not with Apple. We, not Apple, are solely responsible for DermFolio and its content.</p>
 
-<p>These Terms, together with our Privacy Policy and any additional terms presented to you, constitute the entire agreement between you and us regarding DermFolio.</p>
+      <p><strong>Scope of license.</strong> Your license to use DermFolio is limited to a non-transferable license to use DermFolio on any Apple-branded products that you own or control, as permitted by the Usage Rules in the Apple Media Services Terms and Conditions, except that DermFolio may also be accessed and used by other accounts associated with you via Family Sharing or volume purchasing.</p>
 
-<h2>20. Contact</h2>
+      <p><strong>Maintenance and support.</strong> We, not Apple, are solely responsible for providing any maintenance and support services for DermFolio. Apple has no obligation whatsoever to furnish any maintenance and support services with respect to DermFolio.</p>
 
-<p>Questions about these Terms may be sent to:</p>
+      <p><strong>Warranty.</strong> We, not Apple, are responsible for any product warranties, whether express or implied by law, to the extent not effectively disclaimed. In the event of any failure of DermFolio to conform to any applicable warranty, you may notify Apple, and Apple will refund the purchase price (if any) for DermFolio. To the maximum extent permitted by applicable law, Apple will have no other warranty obligation whatsoever with respect to DermFolio, and any other claims, losses, liabilities, damages, costs, or expenses attributable to any failure to conform to any warranty will be our sole responsibility.</p>
 
-<p>
-[Your legal name or entity]<br>
-Email: <a href="mailto:support@dermfolio.app">support@dermfolio.app</a>
-</p>
+      <p><strong>Product claims.</strong> We, not Apple, are responsible for addressing any claims you or any third party have relating to DermFolio or your possession and use of DermFolio, including: (i) product liability claims; (ii) any claim that DermFolio fails to conform to any applicable legal or regulatory requirement; and (iii) claims arising under consumer protection, privacy, or similar legislation.</p>
+
+      <p><strong>Intellectual property rights.</strong> In the event of any third-party claim that DermFolio or your possession and use of DermFolio infringes that third party&rsquo;s intellectual property rights, we, not Apple, will be solely responsible for the investigation, defense, settlement, and discharge of any such intellectual property infringement claim, to the extent required by these Terms.</p>
+
+      <p><strong>Legal compliance.</strong> You represent and warrant that (i) you are not located in a country that is subject to a U.S. Government embargo, or that has been designated by the U.S. Government as a &ldquo;terrorist supporting&rdquo; country; and (ii) you are not listed on any U.S. Government list of prohibited or restricted parties.</p>
+
+      <p><strong>Third-party beneficiary.</strong> You acknowledge and agree that Apple, and Apple&rsquo;s subsidiaries, are third-party beneficiaries of these Terms, and that, upon your acceptance of these Terms, Apple will have the right (and will be deemed to have accepted the right) to enforce these Terms against you as a third-party beneficiary.</p>
+
+      <h2>10. Updates and Changes</h2>
+
+      <p>We may update, modify, suspend, or discontinue DermFolio or any part of it at any time. We may also update these Terms from time to time. If we make material changes, we will update the &ldquo;Last Updated&rdquo; date and may provide additional notice where appropriate.</p>
+
+      <p>Your continued use of DermFolio after changes become effective means you accept the updated Terms.</p>
+
+      <h2>11. Third-Party Services</h2>
+
+      <p>DermFolio may include links or integrations with third-party services, such as device-level sharing, backup, or app-store services. We are not responsible for third-party services, and your use of them is governed by their terms and privacy policies.</p>
+
+      <h2>12. Disclaimer of Warranties</h2>
+
+      <p>DermFolio is provided &ldquo;as is&rdquo; and &ldquo;as available.&rdquo; To the fullest extent permitted by law, we disclaim all warranties, express, implied, or statutory, including warranties of merchantability, fitness for a particular purpose, title, non-infringement, accuracy, availability, and reliability.</p>
+
+      <p>We do not warrant that DermFolio will be uninterrupted, error-free, secure, accurate, or that data will not be lost. You are responsible for maintaining backups and protecting your device.</p>
+
+      <h2>13. Limitation of Liability</h2>
+
+      <p>To the fullest extent permitted by law, we will not be liable for indirect, incidental, consequential, special, exemplary, or punitive damages, or for loss of data, loss of profits, personal injury, emotional distress, or other damages arising out of or related to your use of or inability to use DermFolio.</p>
+
+      <p>To the fullest extent permitted by law, our total liability for any claim arising out of or relating to DermFolio or these Terms will not exceed the greater of: (a) the amount you paid to use DermFolio in the twelve months before the claim arose; or (b) fifty dollars ($50).</p>
+
+      <h2>14. Indemnification</h2>
+
+      <p>You agree to defend, indemnify, and hold harmless us and our officers, directors, employees, contractors, agents, licensors, and service providers from and against claims, liabilities, damages, judgments, losses, costs, and expenses, including reasonable attorneys&rsquo; fees, arising out of or relating to your misuse of DermFolio, your violation of these Terms, your violation of law, or your violation of any third-party rights.</p>
+
+      <h2>15. Termination</h2>
+
+      <p>You may stop using DermFolio at any time. We may suspend or terminate access to DermFolio if we believe you have violated these Terms or if continued access may create risk for us, other users, or third parties.</p>
+
+      <h2>16. Governing Law</h2>
+
+      <p>These Terms are governed by the laws of the State of New York, without regard to conflict-of-law rules, except to the extent preempted by federal law.</p>
+
+      <h2>17. Dispute Resolution</h2>
+
+      <p>Before filing a claim, you agree to contact us at <a href="mailto:support@dermfolio.app">support@dermfolio.app</a> so we can try to resolve the issue informally.</p>
+
+      <p>Any dispute arising out of or relating to these Terms or DermFolio will be resolved in the state or federal courts located in New York County, New York, unless applicable law requires otherwise. You and we consent to personal jurisdiction and venue in those courts.</p>
+
+      <p>Each party waives the right to a jury trial to the fullest extent permitted by law.</p>
+
+      <h2>18. Severability</h2>
+
+      <p>If any provision of these Terms is found unenforceable, that provision will be limited or eliminated to the minimum extent necessary, and the remaining provisions will remain in effect.</p>
+
+      <h2>19. Entire Agreement</h2>
+
+      <p>These Terms, together with our Privacy Policy and any additional terms presented to you, constitute the entire agreement between you and us regarding DermFolio.</p>
+
+      <h2>20. Contact</h2>
+
+      <p>Questions about these Terms may be sent to:</p>
+
+      <p>
+        Micah<br>
+        Email: <a href="mailto:support@dermfolio.app">support@dermfolio.app</a>
+      </p>
+    </article>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 DermFolio. All rights reserved.</p>
+      <p>
+        <a href="/privacy.html">Privacy Policy</a>
+        <span>&middot;</span>
+        <a href="/terms.html">Terms of Use</a>
+        <span>&middot;</span>
+        <a href="/support.html">Support</a>
+      </p>
+    </footer>
+  </div>
+</body>
+</html>
